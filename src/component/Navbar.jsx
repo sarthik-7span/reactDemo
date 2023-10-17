@@ -6,7 +6,7 @@ function App() {
     const [time, setTime] = useState(''); // Initialize time with an empty string
     const scrpath = "https://media.istockphoto.com/id/636379014/photo/hands-forming-a-heart-shape-with-sunset-silhouette.jpg?s=612x612&w=0&k=20&c=CgjWWGEasjgwia2VT7ufXa10azba2HXmUDe96wZG8F0=";
     const [greetingMsg, setGreetingMsg] = useState('');
-    const [styleObj, setStyleObj] = useState({}); // Initialize styleObj with an empty object
+    const [styleObj, setStyleObj] = useState(); // Initialize styleObj with an empty object
 
     useEffect(() => {
         fetch('https://data.covid19india.org/data.json')
@@ -18,9 +18,8 @@ function App() {
                 console.error('Error fetching data:', error);
             });
 
-        const date = new Date(2022, 5, 4, 7);
+        const date = new Date(2022, 5, 4, 17);
         const hours = date.getHours();
-        setTime(hours);
 
         if (hours >= 6 && hours < 12) {
             setGreetingMsg("Good morning");
@@ -32,7 +31,7 @@ function App() {
             setGreetingMsg("Good evening");
             setStyleObj({ color: "black" });
         }
-    }, []); // The empty dependency array ensures that this useEffect runs once
+    }, []);
 
     const itemElements = data.map((item, index) => (
         <li className='bg-orange-400 m-2 border-orange-700 p-4' key={index}>
