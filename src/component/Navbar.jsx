@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "/home/spartan/Documents/my-react-app/src/demo.css";
+import "../demo.css";
 
 function App() {
     const [data, setData] = useState([]);
