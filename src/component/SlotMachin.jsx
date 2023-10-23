@@ -13,7 +13,7 @@ function SlotMachin() {
               {y}
               {z}
             </h1>
-            <p className="text-green-600">this is matching.</p>
+            <p className="text-green-600">this is matching. </p>
           </div>
         </>
       );
