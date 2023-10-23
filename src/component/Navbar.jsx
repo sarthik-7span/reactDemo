@@ -35,7 +35,7 @@ function App() {
 
     const itemElements = data.map((item, index) => (
         <li className='bg-orange-400 m-2 border-orange-700 p-4' key={index}>
-            State: {item.state}<br />
+            State:  {item.state}<br />
             Confirmed:  {item.confirmed}<br />
             Recovered: {item.recovered}<br />
             Deaths: {item.deaths}<br />
