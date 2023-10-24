@@ -27,7 +27,7 @@ function Demo() {
     if (x === "Sarthik") {
       alert("7 crore");
     } else {
-      alert("kal ana hooo.....");
+      alert("kal ana hooo..... ");
     }
   };
   const increment = () => {
