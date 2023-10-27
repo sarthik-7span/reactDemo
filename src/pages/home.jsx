@@ -3,6 +3,7 @@ import Chatbot from "../component/Chatbot";
 import Demo from "../component/Demo";
 import SlotMachin from "../component/SlotMachin";
 import Form from "../component/Form";
+import Todo from "../component/Todo";
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Demo />
       <SlotMachin />
       <Form />
+      <Todo />
     </>
   );
 }

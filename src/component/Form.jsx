@@ -4,6 +4,8 @@ function Form() {
   const [fullname, setname] = useState({
     Fname: "",
     Lname: "",
+    Email: "",
+    Tel: "",
   });
 
   const inputEvent = (e) => {
@@ -16,7 +18,7 @@ function Form() {
 
   const nameUpdate = (e) => {
     e.preventDefault();
-    console.log("form submited" + " " + fullname.Fname + " " + fullname.Lname);
+    console.log(fullname);
   };
   return (
     <div className="py-20">
@@ -41,6 +43,20 @@ function Form() {
           onChange={inputEvent}
           value={fullname.Lname}
           name="Lname"
+        />
+        <input
+          type="email"
+          placeholder="Enter Your Email"
+          onChange={inputEvent}
+          value={fullname.Email}
+          name="Email"
+        />
+        <input
+          type="tel"
+          placeholder="Enter Your Mobile"
+          onChange={inputEvent}
+          value={fullname.Tel}
+          name="Tel"
         />
         <button>Submit</button>
       </form>
