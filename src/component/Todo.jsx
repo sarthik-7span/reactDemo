@@ -22,7 +22,7 @@ function Todo() {
   const removelist = (index) => {
     setitem((old) => {
       const updatedList = [...old];
-      old.splice(index, 1);
+      updatedList.splice(index, 1);
       return updatedList;
     });
   };
