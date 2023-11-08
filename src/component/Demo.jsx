@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Text, { Text1, Text2, name } from "../component/default";
 import { data } from "../data";
 import Heading from "./Heading";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Button } from "@mui/material";
+import Clock from "react-clock";
+import "react-clock/dist/Clock.css";
+import { jsonData } from "../data";
+import Title from "./Title";
+import Accordion from "./Accordion";
 
 function Demo() {
   const [FavMovie, SetFavmovie] = useState("Tere name");
@@ -9,7 +17,17 @@ function Demo() {
   const [alltime, setalltime] = useState(new Date().toLocaleTimeString());
   const [click, setclick] = useState("Laugh 😂");
   const [clickbg, setclickbg] = useState("bg-orange-400");
+  const [value, setValue] = useState(new Date());
+  const [jsData, setjsonData] = useState(jsonData);
+  const [first, setfirst] = useState(false);
+  const [up, setup] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => setValue(new Date()), 1000);
 
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   const num = [1, 2, 3, 4, 5];
   const [bh, th, lh, gh, kk, vl, ok] = [
     "Sunday",
@@ -45,9 +63,15 @@ function Demo() {
     let time = new Date();
     setalltime(time.toLocaleTimeString());
   }, 1000);
+  const fullname = {
+    name: "sarthik",
+    surname: "kevadiya",
+  };
+
   return (
     <>
       <h1>Demo component</h1>
+      <Button variant="outlined">Primary</Button>
       <h1>
         {Text}--{Text1}--{Text2}
       </h1>
@@ -84,10 +108,30 @@ function Demo() {
         <span className="block text-center font-bold text-3xl text-white">
           click button to check event
         </span>
+        <AddIcon />
+        <DeleteIcon />
+
         <button onClick={changeventsingle} onDoubleClick={changeventdouble}>
           {click}
         </button>
+        <div>
+          <p>Current time:</p>
+          <Clock value={value} />
+        </div>
       </div>
+      <div>
+        <Title {...fullname} />
+        <h1 className="text-4xl text-red-700 font-extrabold text-center">
+          Accordion
+        </h1>
+        {jsData.map((item) => {
+          const { id } = item;
+          return <Accordion key={id} {...item} />;
+        })}
+      </div>
+      <div>{first && <h1>hello true</h1>}</div>
+      <button onClick={() => setfirst(!first)}>Click Me</button>
+      <button onClick={() => setup(up + 1)}>Click sarthik {up}</button>
     </>
   );
 }

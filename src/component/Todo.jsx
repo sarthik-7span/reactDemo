@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Listitem from "./Listitem";
 
 function Todo() {
   const [todo, settodo] = useState("");
@@ -52,16 +53,12 @@ function Todo() {
         <ul className="bg-yellow-300 py-6 px-3 rounded-2xl min-h-[200px] flex flex-col gap-5">
           {item.map((items, index) => {
             return (
-              <li
+              <Listitem
                 key={index}
-                className="bg-orange-500 p-3 rounded-xl text-white font-semibold text-2xl"
-              >
-                <i
-                  className="fa-solid fa-xmark mr-4 text-white bg-red-700 p-2 rounded-full cursor-pointer hover:bg-green-700"
-                  onClick={() => removelist(index)}
-                ></i>
-                {items},{index}
-              </li>
+                removelist={removelist}
+                items={items}
+                index={index}
+              />
             );
           })}
         </ul>
